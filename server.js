@@ -1,5 +1,6 @@
 const express = require('express');
 const hbs = require('hbs');
+const port= process.env.PORT || 3000;
 
 var app = express();
 hbs.registerPartials(__dirname + '/views/partials');
@@ -11,12 +12,12 @@ app.set('view engine','hbs');
 //     console.log(`${now}: ${req.method} ${req.url}`)
 //     next();
 // });
-app.use((req, res)=>{
-    res.render('maintenance.hbs' , {
-        pageTitle: 'Maintenance Page',
-        welcomeMessage: 'WE ARE Upgrading a little . Come back Soon. Bye'        
-    });
-})
+// app.use((req, res)=>{
+//     res.render('maintenance.hbs' , {
+//         pageTitle: 'Maintenance Page',
+//         welcomeMessage: 'WE ARE Upgrading a little . Come back Soon. Bye'        
+//     });
+// })
 
 hbs.registerHelper('getYear',()=>{
     return new Date().getFullYear()
@@ -39,6 +40,6 @@ app.get('/about',(req, res)=>{
     });
 });
 
-app.listen(3000,()=>{
-    console.log("Server running at 3000");
+app.listen(port,()=>{
+    console.log(`Server running at ${port}`);
 });
