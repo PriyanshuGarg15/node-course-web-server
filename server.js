@@ -39,6 +39,13 @@ app.get('/about',(req, res)=>{
         welcomeMessage: 'This is about hbs'
     });
 });
+app.get('/project',(req, res)=>{
+    res.render('project.hbs', {
+        pageTitle: 'All Project Page',
+        welcomeMessage: '\n Here is the updated list .See down:'
+    });
+});
+
 
 app.listen(port,()=>{
     console.log(`Server running at ${port}`);
